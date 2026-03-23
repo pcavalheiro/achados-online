@@ -42,7 +42,7 @@ export default function AirpodsPage() {
 
             <p className="text-amber-500 text-lg mb-2">
               ★★★★☆
-              <span className="text-slate-500 text-sm ml-2">(4.5/5)</span>
+              <span className="text-slate-500 text-sm ml-2">(4.6/5)</span>
             </p>
 
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
