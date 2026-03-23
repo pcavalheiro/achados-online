@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 const siteUrl = "https://www.achados-online.com";
 
@@ -36,12 +37,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
-    other: process.env.BING_SITE_VERIFICATION
-      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
-      : undefined,
-  },
   openGraph: {
     type: "website",
     locale: "pt_PT",
@@ -67,3 +62,15 @@ export const metadata: Metadata = {
     images: ["/og-home.jpg"],
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="pt-PT">
+      <body>{children}</body>
+    </html>
+  );
+}
