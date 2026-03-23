@@ -145,7 +145,7 @@ export default function AirpodsPage() {
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
               <Image
-                src="/images/redmi-buds-5.webp"
+                src="/images/redmi-buds-5.jpg"
                 alt="Xiaomi Redmi Buds 5"
                 width={420}
                 height={320}
