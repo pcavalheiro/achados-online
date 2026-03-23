@@ -39,6 +39,11 @@ export default function AirpodsPage() {
               Destaque
             </div>
 
+            <p className="text-amber-500 text-lg mb-2">
+              ★★★★☆
+              <span className="text-slate-500 text-sm ml-2">(4.5/5)</span>
+            </p>
+
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
               Excelente opção para quem quer som premium no dia a dia
             </h2>
@@ -74,15 +79,24 @@ export default function AirpodsPage() {
               </div>
             </div>
 
+            <div className="mt-6 bg-slate-100 rounded-xl p-4 mb-6">
+              <p className="font-semibold mb-2 text-slate-900">Ideal para:</p>
+              <ul className="text-slate-600 text-sm space-y-1">
+                <li>✔ Quem quer qualidade de som</li>
+                <li>✔ Uso diário e chamadas</li>
+                <li>✔ Utilizadores de iPhone</li>
+              </ul>
+            </div>
+
             <Link
               href="/go/airpods"
               className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
             >
-              Ver preço na Amazon
+              👉 Ver melhor preço
             </Link>
 
             <p className="text-sm text-slate-500 mt-3">
-              Alguns links podem encaminhar para páginas de produtos na Amazon.
+              🔥 Produto muito procurado atualmente
             </p>
           </div>
         </section>
@@ -153,7 +167,7 @@ export default function AirpodsPage() {
             href="/go/airpods"
             className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
           >
-            Ver oferta na Amazon
+            👉 Ver oferta disponível
           </Link>
         </section>
       </div>

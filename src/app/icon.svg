@@ -6,10 +6,10 @@
     </linearGradient>
   </defs>
 
-  <!-- background -->
+  <!-- fundo -->
   <rect width="64" height="64" rx="14" fill="url(#grad)"></rect>
 
-  <!-- text -->
+  <!-- texto -->
   <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-size="26" font-family="Arial, sans-serif" font-weight="bold" fill="#38bdf8">
     AO
   </text>

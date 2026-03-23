@@ -38,6 +38,11 @@ export default function AspiradorPage() {
               Destaque
             </div>
 
+            <p className="text-amber-500 text-lg mb-2">
+              ★★★★☆
+              <span className="text-slate-500 text-sm ml-2">(4.4/5)</span>
+            </p>
+
             <h2 className="text-2xl font-bold text-slate-900 mb-3">
               Ideal para manter a casa limpa sem esforço
             </h2>
@@ -47,15 +52,24 @@ export default function AspiradorPage() {
               ideais para quem tem pouco tempo ou quer simplificar tarefas.
             </p>
 
+            <div className="mt-6 bg-slate-100 rounded-xl p-4 mb-6">
+              <p className="font-semibold mb-2 text-slate-900">Ideal para:</p>
+              <ul className="text-slate-600 text-sm space-y-1">
+                <li>✔ Limpeza diária automática</li>
+                <li>✔ Poupar tempo em casa</li>
+                <li>✔ Manutenção regular dos espaços</li>
+              </ul>
+            </div>
+
             <Link
               href="/go/aspirador"
               className="block bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold text-center hover:bg-sky-700"
             >
-              Ver preço na Amazon
+              👉 Ver melhor preço
             </Link>
 
             <p className="text-sm text-slate-500 mt-2">
-              Alguns links podem encaminhar para a Amazon.
+              🔥 Produto muito procurado atualmente
             </p>
           </div>
         </section>
@@ -110,7 +124,7 @@ export default function AspiradorPage() {
             href="/go/aspirador"
             className="block bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold text-center hover:bg-sky-700"
           >
-            Ver oferta na Amazon
+            👉 Ver oferta disponível
           </Link>
         </section>
       </div>

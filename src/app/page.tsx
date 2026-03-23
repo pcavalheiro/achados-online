@@ -9,6 +9,8 @@ const produtos = [
     img: "/images/airpods.jpg",
     descricao:
       "Auriculares sem fios com cancelamento ativo de ruído, conforto elevado e excelente qualidade de som para uso diário.",
+    rating: "4.5/5",
+    idealPara: ["Música", "Chamadas", "Utilizadores Apple"],
   },
   {
     id: "smartwatch",
@@ -16,6 +18,8 @@ const produtos = [
     img: "/images/smartwatch.jpg",
     descricao:
       "Relógio inteligente ideal para acompanhar atividade física, sono, batimentos cardíacos e notificações do telemóvel.",
+    rating: "4.3/5",
+    idealPara: ["Atividade física", "Saúde", "Uso diário"],
   },
   {
     id: "aspirador",
@@ -23,6 +27,8 @@ const produtos = [
     img: "/images/aspirador.jpg",
     descricao:
       "Solução prática para manter a casa limpa com menos esforço, indicada para manutenção diária de vários tipos de chão.",
+    rating: "4.4/5",
+    idealPara: ["Casa", "Limpeza diária", "Poupar tempo"],
   },
 ];
 
@@ -68,11 +74,31 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="font-bold mt-4 text-slate-900">{produto.nome}</h3>
+              <div className="mt-4">
+                <p className="text-amber-500 text-lg">
+                  ★★★★☆
+                  <span className="text-slate-500 text-sm ml-2">
+                    ({produto.rating})
+                  </span>
+                </p>
+              </div>
+
+              <h3 className="font-bold mt-2 text-slate-900 text-lg">
+                {produto.nome}
+              </h3>
 
               <p className="text-slate-600 mt-2 leading-7">
                 {produto.descricao}
               </p>
+
+              <div className="mt-4 bg-slate-100 rounded-xl p-4">
+                <p className="font-semibold text-slate-900 mb-2">Ideal para:</p>
+                <ul className="text-slate-600 text-sm space-y-1">
+                  {produto.idealPara.map((item) => (
+                    <li key={item}>✔ {item}</li>
+                  ))}
+                </ul>
+              </div>
 
               <Link
                 href={`/${produto.id}`}
@@ -80,6 +106,10 @@ export default function Home() {
               >
                 Ver análise
               </Link>
+
+              <p className="text-sm text-slate-500 mt-3 text-center">
+                🔥 Produto muito procurado atualmente
+              </p>
             </div>
           ))}
         </div>
@@ -122,6 +152,10 @@ export default function Home() {
 
         <p>
           © 2026 Achados Online ·{" "}
+          <Link href="/sobre" className="underline">
+            Sobre
+          </Link>{" "}
+          ·{" "}
           <Link href="/politica-privacidade" className="underline">
             Política de Privacidade
           </Link>

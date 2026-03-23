@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     default: "Achados Online",
     template: "%s | Achados Online",
   },
+  icons: {
+    icon: "/icon.svg",
+  },
   description:
     "Descubra produtos em destaque, análises e sugestões de compra. Encontre gadgets, tecnologia e soluções úteis para o seu dia a dia.",
   keywords: [
