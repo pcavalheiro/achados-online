@@ -1,6 +1,28 @@
-"use client";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Smartwatch com Monitorização de Saúde – Vale a pena comprar?",
+  description:
+    "Uma análise simples para perceber se este tipo de smartwatch é uma boa escolha para acompanhar saúde e atividade física no dia a dia.",
+  alternates: {
+    canonical: "/smartwatch",
+  },
+  openGraph: {
+    type: "article",
+    url: "/smartwatch",
+    title: "Smartwatch com Monitorização de Saúde – Vale a pena comprar?",
+    description:
+      "Uma análise simples para perceber se este tipo de smartwatch é uma boa escolha para acompanhar saúde e atividade física no dia a dia.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Smartwatch com Monitorização de Saúde – Vale a pena comprar?",
+    description:
+      "Uma análise simples para perceber se este tipo de smartwatch é uma boa escolha para acompanhar saúde e atividade física no dia a dia.",
+  },
+};
 
 export default function SmartwatchPage() {
   return (

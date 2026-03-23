@@ -1,6 +1,28 @@
-"use client";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
+  description:
+    "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+  alternates: {
+    canonical: "/aspirador",
+  },
+  openGraph: {
+    type: "article",
+    url: "/aspirador",
+    title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
+    description:
+      "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
+    description:
+      "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+  },
+};
 
 export default function AspiradorPage() {
   return (

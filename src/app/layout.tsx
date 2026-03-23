@@ -1,52 +1,69 @@
 import type { Metadata } from "next";
-import "./globals.css";
+
+const siteUrl = "https://www.achados-online.com";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Achados Online",
+    default: "Achados Online | Reviews e recomendações",
     template: "%s | Achados Online",
   },
-  icons: {
-    icon: "/icon.svg",
-  },
   description:
-    "Descubra produtos em destaque, análises e sugestões de compra. Encontre gadgets, tecnologia e soluções úteis para o seu dia a dia.",
+    "Reviews, comparações e recomendações práticas para comprar melhor online.",
+  applicationName: "Achados Online",
+  referrer: "origin-when-cross-origin",
   keywords: [
-    "produtos amazon",
-    "melhores gadgets",
-    "reviews produtos",
-    "comparação produtos",
-    "tecnologia portugal",
-    "achados online",
+    "reviews de produtos",
+    "comparações de produtos",
+    "airpods 4",
+    "alternativas airpods",
+    "gadgets amazon",
   ],
-  authors: [{ name: "Achados Online" }],
-  creator: "Achados Online",
-  metadataBase: new URL("https://www.achados-online.com"),
-
-  openGraph: {
-    title: "Achados Online",
-    description:
-      "Descubra produtos, análises e sugestões para encontrar as melhores opções para o seu dia a dia.",
-    url: "https://www.achados-online.com",
-    siteName: "Achados Online",
-    locale: "pt_PT",
-    type: "website",
+  verification: {
+    google: "CsYpmBUh-RCWpD7EKH4AxpCYIz3vr2x3yxBI4S2gggA",
   },
-
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_PT",
+    url: siteUrl,
+    siteName: "Achados Online",
+    title: "Achados Online | Reviews e recomendações",
+    description:
+      "Descubra produtos úteis, comparações e sugestões práticas para escolher com mais confiança.",
+    images: [
+      {
+        url: "/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Achados Online",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Achados Online | Reviews e recomendações",
+    description:
+      "Reviews, comparações e recomendações práticas para comprar melhor online.",
+    images: ["/og-home.jpg"],
   },
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="pt-PT">
-      <body>{children}</body>
-    </html>
-  );
-}
