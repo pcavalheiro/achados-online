@@ -12,13 +12,14 @@ export default function AirpodsPage() {
           </p>
 
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-            AirPods Pro – Vale a pena comprar em 2026?
+            AirPods 4 com cancelamento de ruído – Vale a pena comprar?
           </h1>
 
           <p className="mt-4 text-lg text-slate-600 max-w-3xl">
-            Uma análise simples e direta para perceber se os AirPods Pro
-            continuam a ser uma boa escolha para quem procura qualidade de som,
-            conforto e cancelamento de ruído.
+            Uma análise simples e direta para perceber se os AirPods 4 com
+            cancelamento ativo de ruído continuam a ser uma boa escolha para
+            quem procura qualidade de som, conforto e uma experiência premium no
+            dia a dia.
           </p>
         </div>
 
@@ -26,7 +27,7 @@ export default function AirpodsPage() {
           <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
             <Image
               src="/images/airpods.jpg"
-              alt="AirPods Pro"
+              alt="AirPods 4 com cancelamento de ruído"
               width={520}
               height={420}
               className="rounded-xl object-contain"
@@ -49,10 +50,10 @@ export default function AirpodsPage() {
             </h2>
 
             <p className="text-slate-700 text-lg leading-8 mb-5">
-              Os AirPods Pro destacam-se pela qualidade de som, conforto e
+              Os AirPods 4 destacam-se pela qualidade de som, conforto e
               cancelamento ativo de ruído. São uma opção muito forte para quem
               usa auriculares todos os dias, especialmente em deslocações,
-              trabalho ou chamadas.
+              trabalho, chamadas e utilização com outros dispositivos Apple.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-6">
@@ -92,11 +93,20 @@ export default function AirpodsPage() {
               href="/go/airpods"
               className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
             >
-              👉 Ver melhor preço
+              👉 Ver oferta disponível na Amazon
             </Link>
 
             <p className="text-sm text-slate-500 mt-3">
               🔥 Produto muito procurado atualmente
+            </p>
+
+            <p className="text-xs text-slate-400 mt-1">
+              Disponível na Amazon · Entrega rápida
+            </p>
+
+            <p className="text-xs text-slate-400 mt-2">
+              Como afiliado da Amazon, posso receber comissões por compras
+              qualificadas.
             </p>
           </div>
         </section>
@@ -119,12 +129,65 @@ export default function AirpodsPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Descrição</h2>
 
           <p className="text-slate-700 leading-8">
-            Os AirPods Pro oferecem uma experiência sonora equilibrada e muito
-            confortável para utilização prolongada. O cancelamento ativo de
-            ruído ajuda a reduzir distrações, enquanto o formato leve facilita o
-            uso em várias situações do dia a dia, desde ouvir música até atender
-            chamadas ou trabalhar em ambientes mais movimentados.
+            Os AirPods 4 com cancelamento ativo de ruído oferecem uma
+            experiência sonora equilibrada e confortável para utilização
+            prolongada. O cancelamento de ruído ajuda a reduzir distrações,
+            enquanto funcionalidades como o áudio adaptativo e o modo ambiente
+            tornam a utilização mais prática no dia a dia.
           </p>
+        </section>
+
+        <section className="mt-10 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4">
+            Alternativa mais barata
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
+              <Image
+                src="/images/redmi-buds-5.webp"
+                alt="Xiaomi Redmi Buds 5"
+                width={420}
+                height={320}
+                className="rounded-xl object-contain"
+              />
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                Xiaomi Redmi Buds 5
+              </h3>
+
+              <p className="text-slate-700 leading-8 mb-4">
+                Se procuras uma alternativa mais acessível aos AirPods 4, os
+                Xiaomi Redmi Buds 5 são uma opção muito interessante. Oferecem
+                cancelamento ativo de ruído, boa autonomia e uma relação
+                qualidade/preço muito forte para utilização diária.
+              </p>
+
+              <div className="bg-slate-100 rounded-xl p-4 mb-5">
+                <p className="font-semibold text-slate-900 mb-2">
+                  Melhor para:
+                </p>
+                <ul className="text-slate-600 text-sm space-y-1">
+                  <li>✔ Quem quer gastar menos</li>
+                  <li>✔ Uso diário</li>
+                  <li>✔ Boa relação qualidade/preço</li>
+                </ul>
+              </div>
+
+              <Link
+                href="/go/airpods_alt"
+                className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
+              >
+                👉 Ver alternativa mais barata na Amazon
+              </Link>
+
+              <p className="text-sm text-slate-500 mt-3">
+                💰 Melhor relação qualidade/preço
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-10 grid md:grid-cols-2 gap-6">
@@ -157,17 +220,19 @@ export default function AirpodsPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Conclusão</h2>
 
           <p className="text-slate-700 leading-8 mb-6">
-            Se procuras auriculares sem fios de qualidade elevada, os AirPods
-            Pro continuam a ser uma aposta muito sólida. São especialmente
-            indicados para quem dá prioridade ao conforto, à qualidade de som e
-            a uma experiência de utilização premium no dia a dia.
+            Se procuras auriculares sem fios de qualidade elevada, os AirPods 4
+            continuam a ser uma aposta muito sólida. São especialmente indicados
+            para quem dá prioridade ao conforto, à qualidade de som e a uma
+            experiência de utilização premium no dia a dia. Para quem prefere
+            poupar, os Xiaomi Redmi Buds 5 são uma alternativa muito
+            equilibrada.
           </p>
 
           <Link
             href="/go/airpods"
             className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
           >
-            👉 Ver oferta disponível
+            👉 Ver melhor preço agora
           </Link>
         </section>
       </div>

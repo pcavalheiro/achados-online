@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 
 const links: Record<string, string> = {
-  airpods: "https://www.amazon.es/",
+  airpods: "https://amzn.to/4m6pbjj/",
+  airpods_alt: "https://amzn.to/40Lm3zr",
   smartwatch: "https://www.amazon.es/",
   aspirador: "https://www.amazon.es/",
 };
@@ -12,6 +13,6 @@ export default async function GoRedirect({
   params: Promise<{ produto: string }>;
 }) {
   const { produto } = await params;
-  const destino = links[produto] ?? "https://www.amazon.es/";
+  const destino = links[produto];
   redirect(destino);
 }
