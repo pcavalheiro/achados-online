@@ -3,11 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Top 5 auriculares Bluetooth estilo AirPods para comprar em 2026",
+  title: "Top 5 alternativas aos AirPods para comprar em 2026",
   description:
     "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
   alternates: {
     canonical: "/top-5-auriculares-bluetooth-estilo-airpods",
+  },
+  openGraph: {
+    type: "article",
+    url: "/top-5-auriculares-bluetooth-estilo-airpods",
+    title: "Top 5 alternativas aos AirPods para comprar em 2026",
+    description:
+      "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
+    images: [
+      {
+        url: "/images/airpods.jpg",
+        alt: "Top 5 alternativas aos AirPods",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Top 5 alternativas aos AirPods para comprar em 2026",
+    description:
+      "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
+    images: ["/images/airpods.jpg"],
   },
 };
 
@@ -126,7 +146,7 @@ export default function TopAuricularesPage() {
           </p>
 
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-            Top 5 auriculares Bluetooth estilo AirPods para comprar em 2026
+            Top 5 alternativas aos AirPods para comprar em 2026
           </h1>
 
           <p className="mt-4 text-lg text-slate-600 max-w-4xl">
@@ -265,11 +285,20 @@ export default function TopAuricularesPage() {
                     </p>
                   </div>
 
+                  {produto.id === "airpods-4-anc" && (
+                    <Link
+                      href="/airpods-pro"
+                      className="block w-full md:w-fit text-center border border-slate-300 text-slate-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-slate-50 transition mb-3"
+                    >
+                      Ler análise completa
+                    </Link>
+                  )}
+
                   <Link
                     href={produto.href}
                     className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
                   >
-                    👉 Ver produto
+                    👉 Ver oferta na Amazon
                   </Link>
 
                   <p className="text-xs text-slate-400 mt-3 leading-6">
@@ -287,27 +316,32 @@ export default function TopAuricularesPage() {
             Qual escolher?
           </h2>
 
-          <div className="space-y-4 text-slate-700 leading-8">
-            <p>
-              <strong>Escolhe os AirPods 4 com ANC</strong> se usas iPhone e
-              queres a opção mais simples e confortável.
-            </p>
-            <p>
-              <strong>Escolhe os Sony WF-C710N</strong> se queres a alternativa
-              mais equilibrada sem subir demasiado de preço.
-            </p>
-            <p>
-              <strong>Escolhe os Soundcore Liberty 4 NC</strong> se o teu foco é
-              qualidade/preço e queres um conjunto muito completo.
-            </p>
-            <p>
-              <strong>Escolhe os EarFun Air Pro 4</strong> se queres gastar
-              menos e ainda assim comprar algo competente.
-            </p>
-            <p>
-              <strong>Escolhe os Space A40</strong> se procuras uma opção budget
-              muito forte para ANC e uso diário.
-            </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p className="font-semibold text-slate-900 mb-1">
+                Melhor para iPhone
+              </p>
+              <p className="text-slate-700">AirPods 4 com ANC</p>
+            </div>
+
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p className="font-semibold text-slate-900 mb-1">
+                Melhor equilíbrio
+              </p>
+              <p className="text-slate-700">Sony WF-C710N</p>
+            </div>
+
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p className="font-semibold text-slate-900 mb-1">
+                Melhor qualidade/preço
+              </p>
+              <p className="text-slate-700">Soundcore Liberty 4 NC</p>
+            </div>
+
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
+              <p className="font-semibold text-slate-900 mb-1">Melhor barato</p>
+              <p className="text-slate-700">EarFun Air Pro 4</p>
+            </div>
           </div>
         </section>
       </div>
