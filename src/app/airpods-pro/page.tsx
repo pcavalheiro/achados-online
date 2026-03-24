@@ -228,14 +228,14 @@ export default function AirpodsPage() {
 
         <section className="mt-10 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Alternativa mais barata
+            Alternativa recomendada
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
               <Image
-                src="/images/redmi-buds-5.jpg"
-                alt="Xiaomi Redmi Buds 5"
+                src="/images/sony-wf-c710n.jpg"
+                alt="Sony WF-C710N"
                 width={420}
                 height={320}
                 className="rounded-xl object-contain"
@@ -244,14 +244,14 @@ export default function AirpodsPage() {
 
             <div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">
-                Xiaomi Redmi Buds 5
+                Sony WF-C710N
               </h3>
 
               <p className="text-slate-700 leading-8 mb-4">
-                Se procuras uma alternativa mais acessível aos AirPods 4, os
-                Xiaomi Redmi Buds 5 são uma opção muito interessante. Oferecem
-                cancelamento ativo de ruído, boa autonomia e uma relação
-                qualidade/preço muito forte para utilização diária.
+                Se procuras uma alternativa equilibrada aos AirPods 4, os Sony
+                WF-C710N são uma opção muito interessante. Oferecem boa
+                qualidade de som, cancelamento de ruído competente e uma
+                experiência sólida para uso diário, chamadas e música.
               </p>
 
               <div className="bg-slate-100 rounded-xl p-4 mb-5">
@@ -259,78 +259,34 @@ export default function AirpodsPage() {
                   Melhor para:
                 </p>
                 <ul className="text-slate-600 text-sm space-y-1">
-                  <li>✔ Quem quer gastar menos</li>
-                  <li>✔ Uso diário</li>
-                  <li>✔ Boa relação qualidade/preço</li>
+                  <li>✔ Quem quer uma alternativa equilibrada</li>
+                  <li>✔ Uso diário e chamadas</li>
+                  <li>✔ Boa qualidade de som</li>
                 </ul>
               </div>
 
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-5">
+                <p className="font-semibold text-emerald-800 mb-2">Destaque</p>
+                <p className="text-sm text-emerald-700">
+                  Excelente equilíbrio entre qualidade, funcionalidades e preço.
+                </p>
+              </div>
+
               <Link
-                href="/go/airpods_alt"
+                href="/go/sony_wf_c710n"
                 className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
               >
-                👉 Ver alternativa mais barata na Amazon
+                👉 Ver alternativa recomendada na Amazon
               </Link>
 
               <p className="text-sm text-slate-500 mt-3">
-                💰 Melhor relação qualidade/preço
+                🎧 Boa alternativa para quem quer equilíbrio
               </p>
-            </div>
-          </div>
-        </section>
 
-        <section className="mt-10 grid md:grid-cols-2 gap-6">
-          <div className="bg-emerald-50 border border-emerald-200 p-6 rounded-2xl">
-            <h3 className="font-bold text-emerald-700 text-xl mb-3">
-              Pontos positivos
-            </h3>
-
-            <ul className="space-y-2 text-slate-700">
-              <li>Excelente qualidade de som</li>
-              <li>Cancelamento de ruído eficaz</li>
-              <li>Muito confortáveis para uso prolongado</li>
-              <li>Boa integração com dispositivos Apple</li>
-            </ul>
-          </div>
-
-          <div className="bg-rose-50 border border-rose-200 p-6 rounded-2xl">
-            <h3 className="font-bold text-rose-700 text-xl mb-3">
-              Pontos negativos
-            </h3>
-
-            <ul className="space-y-2 text-slate-700">
-              <li>Preço acima da média</li>
-              <li>Menos vantagens fora do ecossistema Apple</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="mt-10 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">
-            Para quem faz sentido?
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-5">
-              <h3 className="font-semibold text-slate-900 mb-2">
-                Boa compra se:
-              </h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>✔ Já usas iPhone, iPad ou Mac</li>
-                <li>✔ Valorizas conforto e facilidade de uso</li>
-                <li>✔ Queres uma opção premium para o dia a dia</li>
-              </ul>
-            </div>
-
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-5">
-              <h3 className="font-semibold text-slate-900 mb-2">
-                Pode não ser ideal se:
-              </h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>✖ Procuras o preço mais baixo possível</li>
-                <li>✖ Usas sobretudo Android</li>
-                <li>✖ Preferes mais funções pelo mesmo valor</li>
-              </ul>
+              <p className="text-xs text-slate-400 mt-2 leading-6">
+                Este site pode receber comissão por compras qualificadas, sem
+                custo adicional para o utilizador.
+              </p>
             </div>
           </div>
         </section>

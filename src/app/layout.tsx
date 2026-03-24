@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const siteUrl = "https://www.achados-online.com";
 
@@ -70,7 +71,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
-      <body>{children}</body>
+      <body className="bg-slate-50 text-slate-900">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

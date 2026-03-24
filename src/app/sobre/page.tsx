@@ -1,26 +1,44 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sobre",
+  description:
+    "Conhece o Achados Online e o objetivo do site na análise e recomendação de produtos.",
+};
+
 export default function SobrePage() {
   return (
     <main className="bg-slate-50 min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-6">Sobre</h1>
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            Sobre o Achados Online
+          </h1>
 
-          <p className="text-slate-700 leading-8 mb-4">
-            O Achados Online é um site dedicado a analisar e apresentar produtos
-            úteis para o dia a dia, com o objetivo de ajudar os utilizadores a
-            tomar decisões de compra mais informadas.
-          </p>
+          <div className="space-y-5 text-slate-700 leading-8">
+            <p>
+              O Achados Online é um site dedicado a ajudar utilizadores a
+              encontrar produtos úteis e a tomar decisões de compra de forma
+              simples e informada.
+            </p>
 
-          <p className="text-slate-700 leading-8 mb-4">
-            Aqui encontrará reviews simples, sugestões práticas e conteúdos
-            focados em tecnologia, casa e outros produtos de interesse geral.
-          </p>
+            <p>
+              O objetivo é analisar produtos populares, comparar alternativas e
+              destacar opções com boa relação qualidade/preço, especialmente em
+              categorias como tecnologia, gadgets e produtos do dia a dia.
+            </p>
 
-          <p className="text-slate-700 leading-8">
-            O objetivo do site é oferecer informação clara, acessível e útil,
-            facilitando a descoberta de produtos relevantes para diferentes
-            necessidades.
-          </p>
+            <p>
+              Todas as páginas são criadas com base em pesquisa, análises de
+              utilizadores e comparação entre diferentes opções disponíveis no
+              mercado.
+            </p>
+
+            <p>
+              Este site foi criado para simplificar decisões, sem complicações e
+              sem linguagem técnica desnecessária.
+            </p>
+          </div>
         </div>
       </div>
     </main>
