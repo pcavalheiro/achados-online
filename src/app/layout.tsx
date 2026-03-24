@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = "https://www.achados-online.com";
 
@@ -74,6 +75,7 @@ export default function RootLayout({
       <body className="bg-slate-50 text-slate-900">
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
