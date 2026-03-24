@@ -2,45 +2,23 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = "https://www.achados-online.com";
 
+const pages = [
+  "/",
+  "/top-5-auriculares-bluetooth-estilo-airpods",
+  "/airpods-pro",
+  "/smartwatch",
+  "/aspirador",
+  "/sobre",
+  "/politica-privacidade",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  return [
-    {
-      url: siteUrl,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/airpods-pro`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}/smartwatch`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/aspirador`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/sobre`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${siteUrl}/politica-privacidade`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
-  ];
+  return pages.map((page, index) => ({
+    url: `${siteUrl}${page === "/" ? "" : page}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: index === 0 ? 1 : 0.7,
+  }));
 }
