@@ -316,32 +316,33 @@ export default function TopAuricularesPage() {
             Qual escolher?
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-              <p className="font-semibold text-slate-900 mb-1">
-                Melhor para iPhone
-              </p>
-              <p className="text-slate-700">AirPods 4 com ANC</p>
-            </div>
+          <div className="space-y-4 text-slate-700 leading-8">
+            <p>
+              <strong>Escolhe os AirPods 4 com ANC</strong> se usas iPhone e
+              queres a experiência mais simples, confortável e integrada com os
+              teus dispositivos.
+            </p>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-              <p className="font-semibold text-slate-900 mb-1">
-                Melhor equilíbrio
-              </p>
-              <p className="text-slate-700">Sony WF-C710N</p>
-            </div>
+            <p>
+              <strong>Escolhe os Sony WF-C710N</strong> se procuras o melhor
+              equilíbrio entre qualidade de som, cancelamento de ruído e preço.
+            </p>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-              <p className="font-semibold text-slate-900 mb-1">
-                Melhor qualidade/preço
-              </p>
-              <p className="text-slate-700">Soundcore Liberty 4 NC</p>
-            </div>
+            <p>
+              <strong>Escolhe os Soundcore Liberty 4 NC</strong> se queres a
+              melhor relação qualidade/preço e um conjunto muito completo de
+              funcionalidades.
+            </p>
 
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-4">
-              <p className="font-semibold text-slate-900 mb-1">Melhor barato</p>
-              <p className="text-slate-700">EarFun Air Pro 4</p>
-            </div>
+            <p>
+              <strong>Escolhe os EarFun Air Pro 4</strong> se queres gastar
+              menos e ainda assim ter bom som e cancelamento de ruído.
+            </p>
+
+            <p>
+              <strong>Escolhe os Space A40</strong> se procuras uma opção mais
+              económica com bom ANC para viagens ou uso diário.
+            </p>
           </div>
         </section>
       </div>
