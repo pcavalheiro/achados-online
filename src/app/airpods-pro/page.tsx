@@ -1,39 +1,58 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import AffiliateLink from "@/components/AffiliateLink";
+import JsonLd from "@/components/JsonLd";
+import RelatedArticles from "@/components/RelatedArticles";
+import StickyAmazonCta from "@/components/StickyAmazonCta";
+import { getEntryBySlug, getRelatedEntries, goPath } from "@/content/catalog";
+import {
+  buildArticleJsonLd,
+  buildBreadcrumbJsonLd,
+  buildProductWithReviewJsonLd,
+} from "@/lib/jsonld";
+
+const entry = getEntryBySlug("airpods-pro")!;
+const related = getRelatedEntries("airpods-pro");
+
+const jsonLdData = [
+  buildArticleJsonLd(entry, "/airpods-pro"),
+  buildBreadcrumbJsonLd([
+    { name: "Início", path: "/" },
+    { name: entry.nomeCurto, path: "/airpods-pro" },
+  ]),
+  buildProductWithReviewJsonLd(entry, "/airpods-pro"),
+];
 
 export const metadata: Metadata = {
-  title: "AirPods 4 com cancelamento de ruído – Vale a pena comprar?",
-  description:
-    "Análise simples e direta para perceber se os AirPods 4 com cancelamento ativo de ruído valem a pena em 2026.",
+  title: entry.metaTitle,
+  description: entry.metaDescription,
   alternates: {
     canonical: "/airpods-pro",
   },
   openGraph: {
     type: "article",
     url: "/airpods-pro",
-    title: "AirPods 4 com cancelamento de ruído – Vale a pena comprar?",
-    description:
-      "Análise simples e direta para perceber se os AirPods 4 com cancelamento ativo de ruído valem a pena em 2026.",
+    title: entry.metaTitle,
+    description: entry.metaDescription,
     images: [
       {
-        url: "/images/airpods.jpg",
-        alt: "AirPods 4 com cancelamento de ruído",
+        url: entry.ogImage,
+        alt: entry.nome,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AirPods 4 com cancelamento de ruído – Vale a pena comprar?",
-    description:
-      "Análise simples e direta para perceber se os AirPods 4 com cancelamento ativo de ruído valem a pena em 2026.",
-    images: ["/images/airpods.jpg"],
+    title: entry.metaTitle,
+    description: entry.metaDescription,
+    images: [entry.ogImage],
   },
 };
 
 export default function AirpodsPage() {
   return (
-    <main className="bg-slate-50 min-h-screen">
+    <main className="bg-slate-50 min-h-screen pb-28 md:pb-10">
+      <JsonLd data={jsonLdData} />
       <div className="max-w-6xl mx-auto px-6 py-10">
         <div className="mb-8">
           <p className="text-sm text-sky-700 font-medium mb-2">
@@ -56,7 +75,7 @@ export default function AirpodsPage() {
               ✔ Análise independente
             </span>
             <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-sm text-sky-700 font-medium">
-              ✔ Atualizado em março de 2026
+              ✔ Atualizado em {entry.updatedLabel}
             </span>
             <span className="inline-flex items-center rounded-full bg-violet-50 border border-violet-200 px-3 py-1 text-sm text-violet-700 font-medium">
               ✔ Compra feita na Amazon
@@ -141,12 +160,14 @@ export default function AirpodsPage() {
               </ul>
             </div>
 
-            <Link
-              href="/go/airpods"
+            <AffiliateLink
+              href={goPath(entry.amazonGoKey)}
+              eventName="amazon_cta_inline"
+              eventProduct={entry.nomeCurto}
               className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
             >
               👉 Ver preço atual na Amazon
-            </Link>
+            </AffiliateLink>
 
             <p className="text-sm text-slate-500 mt-3">
               🔥 Produto muito procurado por utilizadores Apple
@@ -214,6 +235,8 @@ export default function AirpodsPage() {
           </div>
         </section>
 
+        <RelatedArticles items={related} />
+
         <section className="mt-10 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Descrição</h2>
 
@@ -272,12 +295,14 @@ export default function AirpodsPage() {
                 </p>
               </div>
 
-              <Link
-                href="/go/sony_wf_c710n"
+              <AffiliateLink
+                href={goPath("sony_wf_c710n")}
+                eventName="amazon_cta_inline"
+                eventProduct="Sony WF-C710N"
                 className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
               >
                 👉 Ver alternativa recomendada na Amazon
-              </Link>
+              </AffiliateLink>
 
               <p className="text-sm text-slate-500 mt-3">
                 🎧 Boa alternativa para quem quer equilíbrio
@@ -372,14 +397,22 @@ export default function AirpodsPage() {
             </p>
           </div>
 
-          <Link
-            href="/go/airpods"
+          <AffiliateLink
+            href={goPath(entry.amazonGoKey)}
+            eventName="amazon_cta_conclusion"
+            eventProduct={entry.nomeCurto}
             className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
           >
             👉 Ver melhor preço agora
-          </Link>
+          </AffiliateLink>
         </section>
       </div>
+
+      <StickyAmazonCta
+        href={goPath(entry.amazonGoKey)}
+        productName={entry.nomeCurto}
+        label="Ver preço na Amazon"
+      />
     </main>
   );
 }

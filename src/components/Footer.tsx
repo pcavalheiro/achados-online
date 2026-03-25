@@ -21,6 +21,12 @@ export default function Footer() {
             </h3>
             <nav className="flex flex-col gap-2 text-sm">
               <Link
+                href="/reviews"
+                className="text-slate-600 hover:text-sky-700 transition"
+              >
+                Reviews
+              </Link>
+              <Link
                 href="/sobre"
                 className="text-slate-600 hover:text-sky-700 transition"
               >

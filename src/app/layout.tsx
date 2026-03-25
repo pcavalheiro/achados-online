@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
-
-const siteUrl = "https://www.achados-online.com";
+import { SITE_URL } from "@/content/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Achados Online | Reviews e recomendações",
     template: "%s | Achados Online",
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Achados Online",
     title: "Achados Online | Reviews e recomendações",
     description:

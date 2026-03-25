@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getFeaturedHomeProducts, HOMEPAGE_COMPARACOES } from "@/content/catalog";
 
 export const metadata: Metadata = {
   title: "Achados Online | Reviews e recomendações",
@@ -11,61 +12,10 @@ export const metadata: Metadata = {
   },
 };
 
-const produtos = [
-  {
-    id: "airpods-pro",
-    nome: "AirPods 4 com cancelamento de ruído",
-    img: "/images/airpods.jpg",
-    descricao:
-      "Auriculares premium com cancelamento ativo de ruído, áudio adaptativo e excelente integração com o ecossistema Apple.",
-    rating: "4.6/5",
-    idealPara: ["Música", "Chamadas", "Utilizadores Apple"],
-    tag: "Mais procurado",
-  },
-  {
-    id: "smartwatch",
-    nome: "Smartwatch com Monitorização de Saúde",
-    img: "/images/smartwatch.jpg",
-    descricao:
-      "Relógio inteligente ideal para acompanhar atividade física, sono, batimentos cardíacos e notificações do telemóvel.",
-    rating: "4.3/5",
-    idealPara: ["Atividade física", "Saúde", "Uso diário"],
-    tag: "Boa escolha diária",
-  },
-  {
-    id: "aspirador",
-    nome: "Aspirador Robot para Limpeza Diária",
-    img: "/images/aspirador.jpg",
-    descricao:
-      "Solução prática para manter a casa limpa com menos esforço, indicada para manutenção diária de vários tipos de chão.",
-    rating: "4.4/5",
-    idealPara: ["Casa", "Limpeza diária", "Poupar tempo"],
-    tag: "Melhor para casa",
-  },
-];
-
-const comparacoes = [
-  {
-    titulo: "Top 5 alternativas aos AirPods",
-    href: "/top-5-auriculares-bluetooth-estilo-airpods",
-    descricao:
-      "Compara 5 auriculares Bluetooth populares para quem quer qualidade, conforto e melhor relação qualidade/preço.",
-  },
-  {
-    titulo: "AirPods 4: vale a pena comprar?",
-    href: "/airpods-pro",
-    descricao:
-      "Vê se os AirPods 4 continuam a ser uma boa escolha para iPhone, chamadas e uso diário.",
-  },
-  {
-    titulo: "Melhor opção para poupar sem comprar mal",
-    href: "/top-5-auriculares-bluetooth-estilo-airpods",
-    descricao:
-      "Descobre modelos mais baratos que fazem sentido para quem quer ANC, conforto e boa autonomia.",
-  },
-];
-
 export default function Home() {
+  const produtos = getFeaturedHomeProducts();
+  const comparacoes = HOMEPAGE_COMPARACOES;
+
   return (
     <main className="bg-slate-50 min-h-screen">
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
@@ -211,7 +161,7 @@ export default function Home() {
                   Recomendado
                 </p>
                 <span className="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">
-                  {produto.tag}
+                  {produto.homeTag}
                 </span>
               </div>
 
@@ -230,7 +180,7 @@ export default function Home() {
                 <p className="text-amber-500 text-lg font-semibold">
                   ★★★★☆
                   <span className="text-slate-500 text-sm ml-2">
-                    ({produto.rating})
+                    ({produto.ratingLabel})
                   </span>
                 </p>
               </div>
@@ -240,7 +190,7 @@ export default function Home() {
               </h3>
 
               <p className="text-slate-600 mt-2 leading-7">
-                {produto.descricao}
+                {produto.homeDescricao}
               </p>
 
               <div className="mt-4 bg-slate-100 rounded-xl p-4">
@@ -253,7 +203,7 @@ export default function Home() {
               </div>
 
               <Link
-                href={`/${produto.id}`}
+                href={`/${produto.slug}`}
                 className="mt-5 block text-center bg-sky-600 text-white py-3 rounded-xl font-semibold hover:bg-sky-700 transition"
               >
                 Ler análise completa

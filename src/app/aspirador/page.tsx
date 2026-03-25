@@ -1,32 +1,53 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import AffiliateLink from "@/components/AffiliateLink";
+import JsonLd from "@/components/JsonLd";
+import RelatedArticles from "@/components/RelatedArticles";
+import StickyAmazonCta from "@/components/StickyAmazonCta";
+import { getEntryBySlug, getRelatedEntries, goPath } from "@/content/catalog";
+import {
+  buildArticleJsonLd,
+  buildBreadcrumbJsonLd,
+  buildProductWithReviewJsonLd,
+} from "@/lib/jsonld";
+
+const entry = getEntryBySlug("aspirador")!;
+const related = getRelatedEntries("aspirador");
+
+const jsonLdData = [
+  buildArticleJsonLd(entry, "/aspirador"),
+  buildBreadcrumbJsonLd([
+    { name: "Início", path: "/" },
+    { name: entry.nomeCurto, path: "/aspirador" },
+  ]),
+  buildProductWithReviewJsonLd(entry, "/aspirador"),
+];
 
 export const metadata: Metadata = {
-  title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
-  description:
-    "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+  title: entry.metaTitle,
+  description: entry.metaDescription,
   alternates: {
     canonical: "/aspirador",
   },
   openGraph: {
     type: "article",
     url: "/aspirador",
-    title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
-    description:
-      "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+    title: entry.metaTitle,
+    description: entry.metaDescription,
+    images: [{ url: entry.ogImage, alt: entry.nome }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aspirador Robot para Limpeza Diária – Vale a pena?",
-    description:
-      "Uma solução prática para manter a casa limpa com menos esforço. Vê se vale mesmo a pena investir num aspirador robot.",
+    title: entry.metaTitle,
+    description: entry.metaDescription,
+    images: [entry.ogImage],
   },
 };
 
 export default function AspiradorPage() {
   return (
-    <main className="bg-slate-50 min-h-screen">
+    <main className="bg-slate-50 min-h-screen pb-28 md:pb-10">
+      <JsonLd data={jsonLdData} />
       <div className="max-w-6xl mx-auto px-6 py-10">
         <div className="mb-8">
           <p className="text-sm text-sky-700 font-medium mb-2">
@@ -83,18 +104,22 @@ export default function AspiradorPage() {
               </ul>
             </div>
 
-            <Link
-              href="/go/aspirador"
+            <AffiliateLink
+              href={goPath(entry.amazonGoKey)}
+              eventName="amazon_cta_inline"
+              eventProduct={entry.nomeCurto}
               className="block bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold text-center hover:bg-sky-700"
             >
               👉 Ver melhor preço
-            </Link>
+            </AffiliateLink>
 
             <p className="text-sm text-slate-500 mt-2">
               🔥 Produto muito procurado atualmente
             </p>
           </div>
         </section>
+
+        <RelatedArticles items={related} />
 
         <section className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-5">
           <h2 className="text-xl font-bold mb-2">Vale a pena?</h2>
@@ -142,14 +167,21 @@ export default function AspiradorPage() {
             quem quer automatizar a limpeza e poupar tempo.
           </p>
 
-          <Link
-            href="/go/aspirador"
+          <AffiliateLink
+            href={goPath(entry.amazonGoKey)}
+            eventName="amazon_cta_conclusion"
+            eventProduct={entry.nomeCurto}
             className="block bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold text-center hover:bg-sky-700"
           >
             👉 Ver oferta disponível
-          </Link>
+          </AffiliateLink>
         </section>
       </div>
+
+      <StickyAmazonCta
+        href={goPath(entry.amazonGoKey)}
+        productName={entry.nomeCurto}
+      />
     </main>
   );
 }

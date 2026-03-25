@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import AffiliateLink from "@/components/AffiliateLink";
+import {
+  getTop5Headphones,
+  goPath,
+} from "@/content/catalog";
+import {
+  buildBreadcrumbJsonLd,
+  buildTop5ArticleJsonLd,
+} from "@/lib/jsonld";
+
+const PAGE_PATH = "/top-5-auriculares-bluetooth-estilo-airpods";
 
 export const metadata: Metadata = {
   title: "Top 5 alternativas aos AirPods para comprar em 2026",
   description:
     "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
   alternates: {
-    canonical: "/top-5-auriculares-bluetooth-estilo-airpods",
+    canonical: PAGE_PATH,
   },
   openGraph: {
     type: "article",
-    url: "/top-5-auriculares-bluetooth-estilo-airpods",
+    url: PAGE_PATH,
     title: "Top 5 alternativas aos AirPods para comprar em 2026",
     description:
       "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
@@ -31,114 +43,26 @@ export const metadata: Metadata = {
   },
 };
 
-const produtos = [
-  {
-    id: "airpods-4-anc",
-    nome: "Apple AirPods 4 com Cancelamento Ativo de Ruído",
-    img: "/images/airpods.jpg",
-    badge: "Melhor para iPhone",
-    resumo:
-      "A escolha mais simples para quem usa iPhone e quer conforto, integração rápida e uma experiência muito prática no dia a dia.",
-    melhorPara: ["Utilizadores de iPhone", "Chamadas", "Uso diário"],
-    pontosFortes: [
-      "Integração excelente com iPhone, iPad e Mac",
-      "Design leve e confortável",
-      "Boa experiência para chamadas e deslocações",
-    ],
-    pontosFracos: [
-      "Preço mais alto",
-      "Menos interessantes fora do ecossistema Apple",
-    ],
-    destaque: "Melhor para quem quer experiência Apple sem complicações.",
-    href: "/go/airpods",
-  },
-  {
-    id: "sony-wf-c710n",
-    nome: "Sony WF-C710N",
-    img: "/images/sony-wf-c710n.jpg",
-    badge: "Melhor equilíbrio",
-    resumo:
-      "Uma opção muito equilibrada para quem quer bom som, ANC competente e boa autonomia sem entrar no segmento premium mais caro.",
-    melhorPara: ["Qualidade/preço", "Chamadas", "Uso diário"],
-    pontosFortes: [
-      "Boa combinação de som, ANC e bateria",
-      "Microfones competentes para chamadas",
-      "Preço mais acessível que modelos premium",
-    ],
-    pontosFracos: [
-      "Não têm o estatuto premium dos topo de gama",
-      "Menos impacto de marca do que AirPods",
-    ],
-    destaque: "Escolha mais equilibrada para a maioria das pessoas.",
-    href: "/go/sony_wf_c710n",
-  },
-  {
-    id: "soundcore-liberty-4-nc",
-    nome: "Anker Soundcore Liberty 4 NC",
-    img: "/images/liberty-4-nc.jpg",
-    badge: "Melhor relação qualidade/preço",
-    resumo:
-      "Auriculares muito competitivos para quem quer cancelamento de ruído, bateria e muitas funcionalidades por menos dinheiro.",
-    melhorPara: ["Custo/benefício", "Viagens", "Uso diário"],
-    pontosFortes: [
-      "Boa autonomia",
-      "ANC forte para o preço",
-      "Muito completos em funcionalidades",
-    ],
-    pontosFracos: [
-      "Afinação sonora menos neutra de origem",
-      "Marca menos aspiracional que Apple ou Sony",
-    ],
-    destaque: "Provavelmente a compra mais segura para quem quer poupar.",
-    href: "/go/liberty_4_nc",
-  },
-  {
-    id: "earfun-air-pro-4",
-    nome: "EarFun Air Pro 4",
-    img: "/images/earfun-air-pro-4.jpg",
-    badge: "Melhor barato",
-    resumo:
-      "Uma das escolhas mais fortes abaixo do segmento premium, com bom som, boa app e um conjunto de funções muito completo para o preço.",
-    melhorPara: ["Orçamento controlado", "ANC", "Android e iPhone"],
-    pontosFortes: [
-      "Preço competitivo",
-      "Boa qualidade de som",
-      "Muitas funções para a gama",
-    ],
-    pontosFracos: [
-      "Marca menos conhecida",
-      "Menos prestígio do que Apple ou Sony",
-    ],
-    destaque:
-      "Faz muito sentido para quem quer gastar menos sem cair em modelos fracos.",
-    href: "/go/earfun_air_pro_4",
-  },
-  {
-    id: "soundcore-space-a40",
-    nome: "Anker Soundcore Space A40",
-    img: "/images/space-a40.jpg",
-    badge: "Melhor abaixo de 100€",
-    resumo:
-      "Uma opção muito forte para quem procura ANC competente e preço mais baixo, especialmente para viagens e uso diário.",
-    melhorPara: ["Até 100€", "Viagens", "Trabalho"],
-    pontosFortes: [
-      "Excelente valor no segmento budget",
-      "ANC muito competente",
-      "Formato discreto e confortável",
-    ],
-    pontosFracos: [
-      "Não têm o som mais premium da lista",
-      "Design menos apelativo para alguns utilizadores",
-    ],
-    destaque:
-      "Boa escolha para quem quer gastar pouco e ainda assim comprar bem.",
-    href: "/go/space_a40",
-  },
-];
-
 export default function TopAuricularesPage() {
+  const produtos = getTop5Headphones();
+
+  const jsonLd = [
+    buildTop5ArticleJsonLd(
+      "Top 5 alternativas aos AirPods para comprar em 2026",
+      "Comparação simples entre 5 auriculares Bluetooth populares para quem procura uma alternativa aos AirPods ou uma boa compra para iPhone e uso diário.",
+      PAGE_PATH,
+      "/images/airpods.jpg",
+      "2026-03-01",
+    ),
+    buildBreadcrumbJsonLd([
+      { name: "Início", path: "/" },
+      { name: "Top 5 alternativas aos AirPods", path: PAGE_PATH },
+    ]),
+  ];
+
   return (
     <main className="bg-slate-50 min-h-screen">
+      <JsonLd data={jsonLd} />
       <div className="max-w-6xl mx-auto px-6 py-10">
         <header className="mb-10">
           <p className="text-sm text-sky-700 font-medium mb-2">
@@ -204,111 +128,114 @@ export default function TopAuricularesPage() {
         </section>
 
         <section className="space-y-8">
-          {produtos.map((produto, index) => (
-            <article
-              key={produto.id}
-              className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8"
-            >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
-                  <Image
-                    src={produto.img}
-                    alt={produto.nome}
-                    width={520}
-                    height={360}
-                    className="rounded-xl object-contain"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-sm font-semibold px-3 py-1 rounded-full">
-                      Top {index + 1}
-                    </span>
-                    <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">
-                      {produto.badge}
-                    </span>
+          {produtos.map((produto, index) => {
+            const t = produto.top5!;
+            return (
+              <article
+                key={produto.id}
+                className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8"
+              >
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
+                    <Image
+                      src={produto.img}
+                      alt={produto.nome}
+                      width={520}
+                      height={360}
+                      className="rounded-xl object-contain"
+                    />
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-                    {produto.nome}
-                  </h2>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      <span className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-sm font-semibold px-3 py-1 rounded-full">
+                        Top {index + 1}
+                      </span>
+                      <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 text-sm font-semibold px-3 py-1 rounded-full">
+                        {t.badge}
+                      </span>
+                    </div>
 
-                  <p className="text-slate-700 text-lg leading-8 mb-5">
-                    {produto.resumo}
-                  </p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+                      {produto.nome}
+                    </h2>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                    {produto.melhorPara.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-xl bg-slate-100 p-4 text-center"
-                      >
-                        <p className="text-sm text-slate-500">Ideal para</p>
-                        <p className="text-base font-bold text-slate-900">
-                          {item}
+                    <p className="text-slate-700 text-lg leading-8 mb-5">
+                      {t.resumo}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                      {t.melhorPara.map((item) => (
+                        <div
+                          key={item}
+                          className="rounded-xl bg-slate-100 p-4 text-center"
+                        >
+                          <p className="text-sm text-slate-500">Ideal para</p>
+                          <p className="text-base font-bold text-slate-900">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4 mb-6">
+                      <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
+                        <p className="font-semibold text-emerald-800 mb-2">
+                          Pontos fortes
                         </p>
+                        <ul className="text-sm text-emerald-700 space-y-1">
+                          {t.pontosFortes.map((item) => (
+                            <li key={item}>✔ {item}</li>
+                          ))}
+                        </ul>
                       </div>
-                    ))}
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-4">
-                      <p className="font-semibold text-emerald-800 mb-2">
-                        Pontos fortes
-                      </p>
-                      <ul className="text-sm text-emerald-700 space-y-1">
-                        {produto.pontosFortes.map((item) => (
-                          <li key={item}>✔ {item}</li>
-                        ))}
-                      </ul>
+                      <div className="rounded-xl bg-rose-50 border border-rose-200 p-4">
+                        <p className="font-semibold text-rose-800 mb-2">
+                          Pontos a considerar
+                        </p>
+                        <ul className="text-sm text-rose-700 space-y-1">
+                          {t.pontosFracos.map((item) => (
+                            <li key={item}>✖ {item}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
 
-                    <div className="rounded-xl bg-rose-50 border border-rose-200 p-4">
-                      <p className="font-semibold text-rose-800 mb-2">
-                        Pontos a considerar
+                    <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+                      <p className="font-semibold text-slate-900 mb-1">
+                        Porque entrou neste top
                       </p>
-                      <ul className="text-sm text-rose-700 space-y-1">
-                        {produto.pontosFracos.map((item) => (
-                          <li key={item}>✖ {item}</li>
-                        ))}
-                      </ul>
+                      <p className="text-slate-700 leading-7">{t.destaque}</p>
                     </div>
-                  </div>
 
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
-                    <p className="font-semibold text-slate-900 mb-1">
-                      Porque entrou neste top
-                    </p>
-                    <p className="text-slate-700 leading-7">
-                      {produto.destaque}
-                    </p>
-                  </div>
+                    {produto.slug && (
+                      <Link
+                        href={`/${produto.slug}`}
+                        className="block w-full md:w-fit text-center border border-slate-300 text-slate-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-slate-50 transition mb-3"
+                      >
+                        Ler análise completa
+                      </Link>
+                    )}
 
-                  {produto.id === "airpods-4-anc" && (
-                    <Link
-                      href="/airpods-pro"
-                      className="block w-full md:w-fit text-center border border-slate-300 text-slate-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-slate-50 transition mb-3"
+                    <AffiliateLink
+                      href={goPath(produto.amazonGoKey)}
+                      eventName="amazon_cta_top5"
+                      eventProduct={produto.nomeCurto}
+                      className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
                     >
-                      Ler análise completa
-                    </Link>
-                  )}
+                      👉 Ver oferta na Amazon
+                    </AffiliateLink>
 
-                  <Link
-                    href={produto.href}
-                    className="block w-full md:w-fit text-center bg-sky-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-sky-700 transition"
-                  >
-                    👉 Ver oferta na Amazon
-                  </Link>
-
-                  <p className="text-xs text-slate-400 mt-3 leading-6">
-                    Este site pode receber comissão por compras qualificadas,
-                    sem custo adicional para o utilizador.
-                  </p>
+                    <p className="text-xs text-slate-400 mt-3 leading-6">
+                      Este site pode receber comissão por compras qualificadas,
+                      sem custo adicional para o utilizador.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </section>
 
         <section className="mt-10 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
